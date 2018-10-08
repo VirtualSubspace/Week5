@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON User</title>
+</head>
+<body>
+
+
+<p> Enter User ID <input id="in1" type="number"><button onclick="showUser()">Show User Information</button></p>
+
+<table id="tbl1">
+    <tr><th> User ID </th><th> Name </th><th> User Name </th></tr>
+
+
+</table>
+
+<script>
+    function showUser() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //console.log(this.responseText);
+            }
+        };
+        xhttp.open("GET", "https://jsonplaceholder.typicode.com/users", true);
+        xhttp.send();
+
+        var showUID = in1.value;
+        //console.log(showUID);
+        var data1 = JSON.parse(this.responseText);
+        var IDno = data1["showUID"].id;
+        console.log(IDno)
+
+
+
+
+    }
+
+
+
+
+</script>
+
+</body>
+</html>
